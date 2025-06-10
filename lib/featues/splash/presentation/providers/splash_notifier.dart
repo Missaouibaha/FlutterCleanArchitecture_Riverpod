@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:clean_arch_riverpod/core/utils/app_consts.dart';
-import 'package:clean_arch_riverpod/featues/splash/domain/splash_usecase_providers.dart';
+import 'package:clean_arch_riverpod/featues/splash/domain/providers/splash_usecase_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SplashNotifier extends AsyncNotifier<bool> {

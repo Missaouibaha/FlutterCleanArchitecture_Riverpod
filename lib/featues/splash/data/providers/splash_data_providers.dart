@@ -8,8 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final splashLocalDataSourceProvider = FutureProvider<SplashLocalDataSource>((
   ref,
 ) async {
-  final prefs = await ref.watch(sharedPrefHelperProvider.future);
-  return SplashLocalDataSourceImpl(prefs);
+  final prefs = await ref.read(sharedPrefHelperProvider.future);
+  return SplashLocalDataSourceImpl(prefs: prefs);
 });
 
 final splashRepositoryProvider = FutureProvider<SplashRepository>((ref) async {
