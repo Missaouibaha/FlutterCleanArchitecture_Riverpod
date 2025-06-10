@@ -1,5 +1,9 @@
 import 'package:clean_arch_riverpod/core/base/base_local_data_source.dart';
+import 'package:clean_arch_riverpod/core/base/base_remote_data_source.dart';
 import 'package:clean_arch_riverpod/core/helper/local/shared_preferences_helper.dart';
+import 'package:clean_arch_riverpod/core/networking/api_service.dart';
+import 'package:clean_arch_riverpod/core/services/hive_service.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,9 +26,32 @@ final sharedPrefHelperProvider = FutureProvider<SharedPreferencesHelper>((
   return SharedPreferencesHelper(pref, secureStorage);
 });
 
+final hiveServiceProvider = FutureProvider<HiveService>((ref) {
+  return HiveService();
+});
+
 final baseLocalDataSourceProvider = FutureProvider<BaseLocalDataSource>((
   ref,
 ) async {
   final sharedPrfHelper = await ref.read(sharedPrefHelperProvider.future);
-  return BaseLocalDataSource(sharedPrfHelper);
+  final hiveService = await ref.read(hiveServiceProvider.future);
+
+  return BaseLocalDataSource(prefs: sharedPrfHelper, hive: hiveService);
+});
+
+final dioProvider = FutureProvider<Dio>((ref) {
+  return Dio();
+});
+
+final apiServiceProvider = FutureProvider<ApiService>((ref) async {
+  final dio = await ref.read(dioProvider.future);
+
+  return ApiService(dio);
+});
+
+final baseRemoteDataSourceProvider = FutureProvider<BaseRemoteDataSource>((
+  ref,
+) async {
+  final apiService = await ref.read(apiServiceProvider.future);
+  return BaseRemoteDataSource(apiService: apiService);
 });

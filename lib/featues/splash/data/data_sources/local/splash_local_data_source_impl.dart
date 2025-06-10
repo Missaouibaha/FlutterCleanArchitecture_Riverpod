@@ -7,7 +7,7 @@ import 'package:dartz/dartz.dart';
 
 class SplashLocalDataSourceImpl extends BaseLocalDataSource
     implements SplashLocalDataSource {
-  SplashLocalDataSourceImpl(super.prefs);
+  SplashLocalDataSourceImpl({required super.prefs});
 
   @override
   Future<Either<Failure, bool>> isConnected() async {

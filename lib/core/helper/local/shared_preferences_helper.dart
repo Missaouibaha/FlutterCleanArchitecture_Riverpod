@@ -42,6 +42,7 @@ class SharedPreferencesHelper {
       int: _prefs.getInt,
       String: _prefs.getString,
     };
+
     return (actions[T]?.call(key) as T?) ?? defaultValue;
   }
 
