@@ -3,7 +3,7 @@ import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 class ApiConstants {
   static const String baseUrl = "https://vcare.integration25.com/api/";
   static const String login = "auth/login";
-  static const String signup = "auth/register";
+  static const String register = "auth/register";
   static const String profile = "user/profile";
   static const String home = "home/index";
   static const String doctor = "doctor/index";

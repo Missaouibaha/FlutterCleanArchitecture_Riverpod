@@ -13,4 +13,7 @@ class ColorsManager {
   static const Color ultraGray = Color(0xFFFDFDFF);
   static const Color skyBlue = Color.fromARGB(255, 36, 156, 255);
   static const Color transparentGray = Color.fromARGB(87, 230, 229, 229);
+    static const Color gray = Color(0xFFE5E5E5);
+  static const Color grayShade100 = Color.fromRGBO(245, 245, 245, 1);
+ 
 }
