@@ -6,12 +6,9 @@ class AppStrings {
   static const String enterValidEmail = "Enter a valid Email adress";
   static const String signUp = "Sign Up";
   static const String signIn = "Sign In";
-  static const String passwordLengthRestriction =
-      "Password must be at least 8 characters";
-
-      //error
-        static const String unknownError = " Unknown Error";
-
+  static const String email = "Email";
+  //error
+  static const String unknownError = " Unknown Error";
 
   //login
   static const String login = "Login";
@@ -28,7 +25,28 @@ class AppStrings {
   static const String termsAndconditionsSpan3 = " and ";
   static const String termsAndconditionsSpan4 = "PrivacyPolicy. ";
 
-// api errors messages
+  // register
+  static const String createAccount = "Create Account";
+  static const String signupWelcomeMsg =
+      " Sign up now and start exploring all that our apps has to offer . We're excited to welcome you to our community ! .";
+  static const String name = "Name";
+  static const String phone = "Phone";
+  static const String password = "Password";
+  static const String gender = "Gender :";
+  static const String male = "Male";
+  static const String female = "Female";
+  static const String nameRestriction = "name must be at least 3 caracters";
+  static const String phoneRestriction =
+      "phone number must be at least 8 numbers";
+  static const String orSignupWith = "Or Signup with";
+  static const String passwordLengthRestriction =
+      "Password must be at least 8 characters";
+  static const String confirmPassword = "Confirm Password";
+  static const String confirmPassLengthRestriction =
+      " password and confirm password are not identical";
+  static const String hvAccnt = "Already Have an account ?";
+
+  // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";
   static const String noContentError =
@@ -53,4 +71,3 @@ class AppStrings {
   static const String loadingMessage = "Loading, please wait...";
   static const String retryAgainMessage = "Please retry again.";
 }
-

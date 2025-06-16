@@ -2,6 +2,7 @@ import 'package:clean_arch_riverpod/core/base/base_local_data_source.dart';
 import 'package:clean_arch_riverpod/core/base/base_remote_data_source.dart';
 import 'package:clean_arch_riverpod/core/helper/local/shared_preferences_helper.dart';
 import 'package:clean_arch_riverpod/core/networking/api_service.dart';
+import 'package:clean_arch_riverpod/core/networking/dio_factory.dart';
 import 'package:clean_arch_riverpod/core/services/hive_service.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -40,7 +41,7 @@ final baseLocalDataSourceProvider = FutureProvider<BaseLocalDataSource>((
 });
 
 final dioProvider = FutureProvider<Dio>((ref) {
-  return Dio();
+  return DioFactory.getDio();
 });
 
 final apiServiceProvider = FutureProvider<ApiService>((ref) async {

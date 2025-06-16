@@ -1,17 +1,20 @@
+import 'package:clean_arch_riverpod/core/helper/routing/routes.dart';
 import 'package:clean_arch_riverpod/core/helper/spacing.dart';
 import 'package:clean_arch_riverpod/core/theming/app_dimensions.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 import 'package:clean_arch_riverpod/core/widgets/app_text_button.dart';
+import 'package:clean_arch_riverpod/core/widgets/divider_with_text.dart';
+import 'package:clean_arch_riverpod/core/widgets/span_register_login_row.dart';
 import 'package:clean_arch_riverpod/core/widgets/terms_and_conditions.dart';
 import 'package:clean_arch_riverpod/featues/signin/presentation/providers/login_notifier.dart';
-import 'package:clean_arch_riverpod/core/widgets/divider_with_text.dart';
 import 'package:clean_arch_riverpod/featues/signin/presentation/widgets/login_form.dart';
 import 'package:clean_arch_riverpod/featues/signin/presentation/widgets/login_state_listener.dart';
 import 'package:clean_arch_riverpod/featues/signin/presentation/widgets/remember_me_row.dart';
 import 'package:clean_arch_riverpod/featues/signin/presentation/widgets/social_login_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -90,9 +93,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 verticalSpace(AppDimensions.height_30),
                 TermesConditionsView(),
                 verticalSpace(AppDimensions.height_25),
-                _buildSignUpRow(() {
-                  // navigate to signup
-                }),
+                SpanRegisterLoginRow(
+                  hasAnAcount: false,
+                  navigateTo: () {
+                    context.pushNamed(Routes.registerScreen);
+                  },
+                ),
                 const LoginStateListener(),
               ],
             ),

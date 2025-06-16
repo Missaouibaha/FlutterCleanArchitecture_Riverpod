@@ -1,9 +1,10 @@
 import 'package:clean_arch_riverpod/core/networking/api_constants.dart';
+import 'package:clean_arch_riverpod/featues/register/data/data_source/remote/models/register_request_body.dart';
+import 'package:clean_arch_riverpod/featues/register/data/data_source/remote/models/register_response.dart';
 import 'package:clean_arch_riverpod/featues/signin/data/data_sources/remote/models/login_request_body.dart';
 import 'package:clean_arch_riverpod/featues/signin/data/data_sources/remote/models/login_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
 
 part 'api_service.g.dart';
 
@@ -13,4 +14,9 @@ abstract class ApiService {
 
   @POST(ApiConstants.login)
   Future<LoginResponse> login(@Body() LoginRequestBody loginRequestBody);
+
+  @POST(ApiConstants.register)
+  Future<RegisterResponse> register(
+    @Body() RegisterRequestBody registerRequestBody,
+  );
 }
