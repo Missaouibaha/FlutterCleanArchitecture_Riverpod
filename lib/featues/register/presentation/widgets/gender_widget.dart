@@ -37,6 +37,7 @@ class GenderWidget extends StatelessWidget {
     Gender selectedGender,
   ) {
     return Checkbox(
+      key: Key('${selectedGender.name}Checkbox'),
       value: currentGender == selectedGender,
       onChanged: (value) {
         if (value == true) {

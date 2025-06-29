@@ -76,8 +76,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 verticalSpace(AppDimensions.height_30),
                 Consumer(
                   builder: (context, ref, child) {
+                    final gender = ref.watch(gnederProvider);
                     final registerState = ref.watch(registerNotifierProvider);
                     return AppTextButton(
+                      key: const Key('register_button'),
                       textButton: AppStrings.createAccount,
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
@@ -111,6 +113,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void _validateThenRegister(WidgetRef ref) {
     final gender = ref.read(gnederProvider.notifier).state;
     if (formKey.currentState?.validate() ?? false) {
+
       ref
           .read(registerNotifierProvider.notifier)
           .register(
@@ -120,6 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             gender.gederValue,
             passwordController.text,
           );
+
     }
   }
 }

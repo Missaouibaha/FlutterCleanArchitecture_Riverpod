@@ -6,7 +6,7 @@ import 'package:clean_arch_riverpod/featues/signin/data/data_sources/local/model
 
 class RegisterLocalDatasourceImpl extends BaseLocalDataSource
     implements RegisterLocalDatasource {
-  RegisterLocalDatasourceImpl({super.hive, super.prefs});
+  RegisterLocalDatasourceImpl({required super.hive, super.prefs});
 
   @override
   Future<void> cacheUser(UserLocal user) async {
