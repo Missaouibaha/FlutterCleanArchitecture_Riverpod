@@ -64,6 +64,8 @@ class ResponseMessage {
 }
 
 class ErrorHandler {
+  ErrorHandler({required this.apiErrorModel});
+
   late ApiErrorModel apiErrorModel;
   ErrorHandler.handle(dynamic error) {
     if (error is DioException) {
