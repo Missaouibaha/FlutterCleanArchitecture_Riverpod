@@ -20,6 +20,7 @@ class RegisterNotifier extends AsyncNotifier<User?> {
     int gender,
     String password,
   ) async {
+    
     state = AsyncValue.loading();
     final result = await _registerUseCase.call(
       name,
@@ -28,13 +29,13 @@ class RegisterNotifier extends AsyncNotifier<User?> {
       gender,
       password,
     );
-
     result.whenOrNull(
       success: (data) {
         state = AsyncValue.data(data);
       },
       failure: (errorHandler) {
         String errorMessage = errorHandler.apiErrorModel.getErrorMessage();
+
         state = AsyncValue.error(errorMessage, StackTrace.current);
       },
     );

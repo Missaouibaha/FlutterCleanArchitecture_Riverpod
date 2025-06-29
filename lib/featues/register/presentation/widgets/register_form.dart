@@ -39,6 +39,7 @@ class _RegisterFormState extends State<RegisterForm> {
         children: [
           AppTextFormField(
             hint: AppStrings.name,
+              key: const Key('nameField'),
             inputType: TextInputType.name,
             validator: (value) {
               if (value.isNullOrEmpty || (value?.length ?? 0) < AppConsts.minNameLength) {
@@ -50,6 +51,7 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
             hint: AppStrings.email,
+              key: const Key('emailField'),
             inputType: TextInputType.emailAddress,
             validator: (value) {
               return value?.isValidateEmail();
@@ -59,6 +61,7 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
             hint: AppStrings.phone,
+              key: const Key('phoneField'),
             inputType: TextInputType.phone,
             validator: (value) {
               if (value.isNullOrEmpty || (value?.length ?? 0) < AppConsts.minPasswordLength) {
@@ -70,6 +73,7 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
             hint: AppStrings.password,
+              key: const Key('passwordField'),
             isobscureText: isobscureText,
             inputType: TextInputType.visiblePassword,
             validator: (value) {
@@ -93,6 +97,7 @@ class _RegisterFormState extends State<RegisterForm> {
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
             hint:AppStrings.confirmPassword,
+              key: const Key('confirmPasswordField'),
             isobscureText: isobscureText,
             inputType: TextInputType.visiblePassword,
             validator: (value) {
