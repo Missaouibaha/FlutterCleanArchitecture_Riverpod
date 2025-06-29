@@ -17,13 +17,14 @@ class LoginRepositoryImplementation implements LoginRepository {
   @override
   Future<ApiResult<User>> login(String email, String password) async {
     try {
+
       final result = await _loginRemoteDataSource.login(email, password);
 
       return result.when(
         success: (data) async {
           final user = data?.userData;
           if (user != null) {
-            await _loginLocalDataSource.cacheUser(user.toLocal());
+           await _loginLocalDataSource.cacheUser(user.toLocal());
 
             return ApiResult.success(user.toDomain());
           } else {
@@ -38,4 +39,8 @@ class LoginRepositoryImplementation implements LoginRepository {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+
+
+  
 }

@@ -1,5 +1,3 @@
-import 'package:clean_arch_riverpod/core/helper/spacing.dart';
-import 'package:clean_arch_riverpod/core/theming/app_dimensions.dart';
 import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
@@ -19,26 +17,29 @@ class RememberMeRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Row(
-          children: [
-            Checkbox(
-              value: rememberMe,
-              onChanged: onRememberMeChanged,
-              activeColor: ColorsManager.blueAccent,
-              checkColor: ColorsManager.black,
-            ),
-          ],
+        Checkbox(
+          value: rememberMe,
+          onChanged: onRememberMeChanged,
+          activeColor: ColorsManager.blueAccent,
+          checkColor: ColorsManager.black,
         ),
-        horizontalSpace(AppDimensions.width_10),
-        Text(AppStrings.rememberMe, style: TextStyles.font16LightGrayMedium),
-        horizontalSpace(AppDimensions.width_30),
-        GestureDetector(
-          onTap: onForgetPasswordPressed,
+        Flexible(
           child: Text(
-            AppStrings.forgetPasswordMsg,
-            style: TextStyles.font14BlueRegular,
+            AppStrings.rememberMe,
+            style: TextStyles.font16LightGrayMedium,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        Spacer(),  
+        Flexible(
+          child: GestureDetector(
+            onTap: onForgetPasswordPressed,
+            child: Text(
+              AppStrings.forgetPasswordMsg,
+              style: TextStyles.font14BlueRegular,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ),
       ],

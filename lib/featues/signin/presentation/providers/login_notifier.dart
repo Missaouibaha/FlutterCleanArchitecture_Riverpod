@@ -16,9 +16,11 @@ class LoginNotifier extends AsyncNotifier<User?> {
   }
 
   Future<void> login(String email, String password) async {
+
     state = AsyncValue.loading();
 
     final result = await _loginUseCase.call(email, password);
+
     result.when(
       success: (user) {
         state = AsyncValue.data(user);

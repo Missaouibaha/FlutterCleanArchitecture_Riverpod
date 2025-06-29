@@ -30,6 +30,7 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           AppTextFormField(
+            key: Key("email_key"),
             hint: 'Email',
             textController: widget.emailController,
             validator: (value) {
@@ -38,6 +39,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           verticalSpace(AppDimensions.height_12),
           AppTextFormField(
+            key: Key("password_key"),
             hint: 'Password',
             isobscureText: isobscureText,
             suffixIcon: GestureDetector(
