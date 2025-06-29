@@ -15,22 +15,27 @@ class SpanRegisterLoginRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return 
+    Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          hasAnAcount ? AppStrings.hvAccnt : AppStrings.hvntAccnt,
-          style: TextStyles.font13BlackRegular,
-        ),
-        horizontalSpace(AppDimensions.width_3),
-        GestureDetector(
+        Flexible(
           child: Text(
-            hasAnAcount ? AppStrings.signIn : AppStrings.signUp,
-            style: TextStyles.font13BlueMedium,
+            hasAnAcount ? AppStrings.hvAccnt : AppStrings.hvntAccnt,
+            style: TextStyles.font13BlackRegular,
+            overflow: TextOverflow.ellipsis,
           ),
-          onTap: () {
-            navigateTo();
-          },
+        ),
+        SizedBox(width: 3),
+        Flexible(
+          child: GestureDetector(
+            onTap: navigateTo,
+            child: Text(
+              hasAnAcount ? AppStrings.signIn : AppStrings.signUp,
+              style: TextStyles.font13BlueMedium,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
       ],
     );

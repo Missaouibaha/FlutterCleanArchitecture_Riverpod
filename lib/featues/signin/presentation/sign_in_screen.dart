@@ -110,6 +110,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void validateThenLogin(WidgetRef ref) {
     if (formKey.currentState?.validate() ?? false) {
+      
       ref
           .read(loginNotifierProvider.notifier)
           .login(emailController.text, passwordController.text);

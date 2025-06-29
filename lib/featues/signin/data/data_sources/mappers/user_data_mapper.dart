@@ -6,7 +6,6 @@ extension UserDataMapper on UserData {
   UserLocal toLocal() {
     return UserLocal(name: name ?? '', token: token ?? '');
   }
-
   User toDomain() {
     return User(name: name ?? '', token: token ?? '');
   }
