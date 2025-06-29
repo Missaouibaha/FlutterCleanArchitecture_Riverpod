@@ -10,6 +10,7 @@ class ErrorDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      key: const Key('error_dialog'),
       backgroundColor: Colors.white,
       content: Text(message, style: TextStyles.font14DarckBlueMedium),
       actions: [

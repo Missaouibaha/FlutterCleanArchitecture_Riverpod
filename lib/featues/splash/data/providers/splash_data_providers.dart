@@ -9,6 +9,8 @@ final splashLocalDataSourceProvider = FutureProvider<SplashLocalDataSource>((
   ref,
 ) async {
   final prefs = await ref.read(sharedPrefHelperProvider.future);
+  
+  final hive = await ref.read(hiveServiceProvider.future);
   return SplashLocalDataSourceImpl(prefs: prefs);
 });
 

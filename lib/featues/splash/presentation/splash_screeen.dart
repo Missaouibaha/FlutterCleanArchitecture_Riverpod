@@ -16,6 +16,7 @@ class SplashScreeen extends ConsumerWidget {
           if (isLoggedIn) {
             context.pushReplacementNamed(Routes.mainScreen);
           } else {
+            
             context.pushReplacementNamed(Routes.loginScreen);
           }
         },
