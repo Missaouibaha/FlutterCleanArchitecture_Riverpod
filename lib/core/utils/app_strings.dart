@@ -46,6 +46,13 @@ class AppStrings {
       " password and confirm password are not identical";
   static const String hvAccnt = "Already Have an account ?";
 
+  //main
+  static const String homeLabel = "Home";
+  static const String chatLabel = "Chat";
+  static const String searchLabel = "Search";
+  static const String appointmentLabel = "Appointment";
+  static const String profileLabel = "Profile";
+
   // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";
