@@ -12,5 +12,6 @@ class AppAssets {
   static const chatIcon = 'assets/images/icon_chat.png';
   static const searchIcon = 'assets/images/icon_search.png';
   static const appointmentIcon = 'assets/images/icon_appointments.png';
-
+  static const doctorImage = 'assets/images/img_doc.png';
+  static const iconCardioSpeciality = 'assets/images/icon_cardiologist_.png';
 }

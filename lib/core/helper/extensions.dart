@@ -5,7 +5,10 @@ import 'package:go_router/go_router.dart';
 extension StringExtensions on String? {
   bool get isNullOrEmpty => this == null || this!.isEmpty;
 }
-
+extension ListExtension on List?{
+ 
+bool get isNullOrEmpty => this == null || this!.isEmpty;
+}
 extension NavigationGoRouter on BuildContext {
   /// Navigate to a named route (replaces current screen)
   void goNamed(

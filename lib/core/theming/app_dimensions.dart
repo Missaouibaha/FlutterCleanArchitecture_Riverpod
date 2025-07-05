@@ -16,6 +16,14 @@ class AppDimensions {
   static double height_35 = 30.h;
   static double height_40 = 40.h;
   static double height_50 = 50.h;
+  static double height_90 = 90.h;
+  static double height_100 = 100.h;
+  static double height_120 = 120.h;
+  static double height_140 = 140.h;
+  static double height_180 = 180.h;
+  static double height_200 = 200.h;
+  static double height_210 = 210.h;
+  static double height_230 = 230.h;
 
   // Width
 
@@ -29,7 +37,16 @@ class AppDimensions {
   static double width_12 = 12.w;
   static double width_20 = 20.w;
   static double width_30 = 30.w;
+  static double width_35 = 35.w;
   static double width_40 = 40.w;
+  static double width_50 = 50.w;
+  static double width_70 = 80.w;
+  static double width_80 = 80.w;
+  static double width_90 = 90.w;
+  static double width_100 = 100.w;
+  static double width_110 = 110.w;
+  static double width_120 = 120.w;
+  static double width_150 = 150.w;
 
   // Padding
 
@@ -61,12 +78,11 @@ class AppDimensions {
   static double radius_12 = 12.r;
   static double radius_16 = 16.r;
   static double radius_20 = 20.r;
+  static double radius_25 = 25.r;
   static double radius_30 = 30.r;
 
-  
   // Divider thickness
   static double dividerThickness_1 = 1.w;
   static double dividerThickness_2 = 2.w;
   static double verticalDividerThickness_2 = 2.h;
-
 }

@@ -16,7 +16,7 @@ class LoginLocalDataSourceImpl extends BaseLocalDataSource
   @override
   Future<void> cacheUser(UserLocal user) async {
     await user.token?.let((it) async => await cacheToken(it));
-    cache(HiveKeys.connectedUserBox, HiveKeys.user, user);
+    cache<UserLocal?>(HiveKeys.connectedUserBox, HiveKeys.user, user);
   }
 
   Future<void> cacheToken(String token) async {
