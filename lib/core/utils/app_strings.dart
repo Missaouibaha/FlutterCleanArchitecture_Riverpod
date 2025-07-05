@@ -52,6 +52,19 @@ class AppStrings {
   static const String searchLabel = "Search";
   static const String appointmentLabel = "Appointment";
   static const String profileLabel = "Profile";
+  //home
+  static const String hiMsg = 'Hi ,';
+
+  static const String welcomeHomeMsg = 'How Are you to day';
+  static const String bookNearesrDoctor =
+      "Book and \n schedule with \n nearest doctor";
+  static const String findNearby = "Find nearby";
+  static const String seeAll = 'See All';
+  static const String doctorSpeciality = "Doctor Speciality";
+  static const String recomendedDoctors = " Recomended Doctors";
+  static const String defaultSpecialityDoc = "Cardiology";
+  static const String defaultRecomDoc = "Dr. Default";
+  static const String defaultDegreeDoc = "Consultant";
 
   // api errors messages
   static const String badRequestError =

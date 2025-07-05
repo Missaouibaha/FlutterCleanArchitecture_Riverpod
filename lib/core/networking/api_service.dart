@@ -1,4 +1,5 @@
 import 'package:clean_arch_riverpod/core/networking/api_constants.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/home_response.dart';
 import 'package:clean_arch_riverpod/featues/register/data/data_source/remote/models/register_request_body.dart';
 import 'package:clean_arch_riverpod/featues/register/data/data_source/remote/models/register_response.dart';
 import 'package:clean_arch_riverpod/featues/signin/data/data_sources/remote/models/login_request_body.dart';
@@ -19,4 +20,7 @@ abstract class ApiService {
   Future<RegisterResponse> register(
     @Body() RegisterRequestBody registerRequestBody,
   );
+
+  @GET(ApiConstants.home)
+  Future<HomeResponse?> getHomeData(@Header("Authorization") String token);
 }

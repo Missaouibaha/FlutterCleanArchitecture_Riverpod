@@ -1,4 +1,9 @@
 import 'package:clean_arch_riverpod/core/services/hive_keys.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/city.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/doctor.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/governorate.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/home_data.dart';
+import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/specialization.dart';
 import 'package:clean_arch_riverpod/featues/signin/data/data_sources/local/models/user_local.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -13,6 +18,11 @@ class HiveService {
       await Hive.initFlutter();
     }
     Hive.registerAdapter(UserLocalAdapter());
+    Hive.registerAdapter(HomeDataAdapter());
+    Hive.registerAdapter(DoctorAdapter());
+    Hive.registerAdapter(SpecializationAdapter());
+    Hive.registerAdapter(CityAdapter());
+    Hive.registerAdapter(GovernorateAdapter());
   }
 
   Future<Box<T>> openBox<T>(String name) async {
@@ -31,13 +41,19 @@ class HiveService {
 
   Future<T?> openAndGet<T>(String boxKey, dynamic dataKey) async {
     Box<T> box;
-    box = await openBox(boxKey);
+
+    if (Hive.isBoxOpen(boxKey)) {
+      box = Hive.box<T>(boxKey); // Already opened
+    } else {
+      box = await Hive.openBox<T>(boxKey); // First time opening
+    }
+
     return box.get(dataKey);
   }
 
   Future<void> openAndPut<T>(String boxKey, dynamic dataKey, T data) async {
     Box<T> box;
-    box = await openBox(boxKey);
+    box = await openBox<T>(boxKey);
     await box.put(dataKey, data);
   }
 
@@ -49,13 +65,26 @@ class HiveService {
     await Hive.deleteFromDisk();
   }
 
-  Future<void> clearBox(String boxName) async {
+  Future<void> clearAndCloseBox<T>(String boxName) async {
     if (Hive.isBoxOpen(boxName)) {
-      await Hive.box(boxName).clear();
+      await Hive.box<T>(boxName).clear();
     } else {
-      final box = await Hive.openBox(boxName);
+      final box = await Hive.openBox<T>(boxName);
       await box.clear();
       await box.close();
+    }
+  }
+
+  Future<void> clearBox<T>(String boxName) async {
+    if (Hive.isBoxOpen(boxName)) {
+      try {
+        await Hive.box<T>(boxName).clear();
+      } catch (error, st) {
+        debugPrint("$error");
+      }
+    } else {
+      final box = await Hive.openBox<T>(boxName);
+      await box.clear();
     }
   }
 

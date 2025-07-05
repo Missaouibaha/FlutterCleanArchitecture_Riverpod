@@ -27,10 +27,32 @@ class BaseLocalDataSource {
   }
 
   Future cache<T>(String boxKey, String objectKey, T data) async {
-    await hive?.openAndPut(boxKey, objectKey, data);
+    try {
+      await hive?.openAndPut<T>(boxKey, objectKey, data);
+    } catch (error) {
+      debugPrint("cache error : $error");
+    }
+  }
+
+  Future<void> cacheList<T>(String boxKey, List<T> data) async {
+    // Clear the box before inserting new data
+    await hive?.clearBox<T>(boxKey);
+
+    for (int i = 0; i < data.length; i++) {
+      try {
+        await cache<T>(boxKey, '$i', data[i]);
+      } catch (error) {
+        debugPrint("cache list error : $error");
+      }
+    }
+  }
+
+  Future<List<T>?> getCachedList<T>(String boxKey) async {
+    final box = await hive?.openBox<T>(boxKey);
+    return box?.values.toList();
   }
 
   Future<T?> getCached<T>(String boxKey, String objectKey) async {
-    return await hive?.openAndGet(boxKey, objectKey);
+    return await hive?.openAndGet<T?>(boxKey, objectKey);
   }
 }
