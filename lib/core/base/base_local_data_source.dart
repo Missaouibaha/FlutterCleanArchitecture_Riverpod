@@ -19,7 +19,7 @@ class BaseLocalDataSource {
 
   Future<String> getToken() async {
     try {
-      return await prefs!.getSecureString(SharedPreferencesKeys.isConnected);
+      return await prefs!.getSecureString(SharedPreferencesKeys.token);
     } catch (error) {
       debugPrint("get token error : $error");
       return "";

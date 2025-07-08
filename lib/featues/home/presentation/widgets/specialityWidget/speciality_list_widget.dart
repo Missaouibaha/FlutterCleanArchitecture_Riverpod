@@ -29,6 +29,7 @@ class SpecialityListWidget extends ConsumerWidget {
                   -1,
                   AppStrings.defaultSpecialityDoc,
                   AppAssets.iconCardioSpeciality,
+                  true
                 ),
               );
             },

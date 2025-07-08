@@ -4,6 +4,12 @@ class AppConsts {
   static const int splashDelay = 2;
   static const double minPasswordLength = 8;
   static const double minNameLength = 3;
+  static const int shimmerDoctorListCount = 5;
   static const int recomendedDocListCount = 3;
   static const int specialityListCount = 5;
+  static const int specialityShimmerListCount = 5;
+  static const int minSpecialityListLength = 3;
+    static const int fakeSpecialityAllId = -1;
+
+
 }

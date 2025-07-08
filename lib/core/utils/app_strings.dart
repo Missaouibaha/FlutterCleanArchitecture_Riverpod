@@ -66,6 +66,9 @@ class AppStrings {
   static const String defaultRecomDoc = "Dr. Default";
   static const String defaultDegreeDoc = "Consultant";
 
+  // search
+  static const String hintSearch = "Doctor , speciality" ;
+  static const String fakeSpecialityAllLabel = "All";
   // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";

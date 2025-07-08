@@ -3,11 +3,11 @@ import 'package:clean_arch_riverpod/core/theming/app_assets.dart';
 import 'package:clean_arch_riverpod/core/theming/app_dimensions.dart';
 import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
-import 'package:clean_arch_riverpod/featues/home/domain/models/recomended_doctor_entity.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
 import 'package:flutter/material.dart';
 
 class ItemRecomendedDoctor extends StatelessWidget {
-  final RecomendedDoctorEntity? doctor;
+  final DoctorEntity? doctor;
   const ItemRecomendedDoctor({super.key, required this.doctor});
 
   @override

@@ -1,8 +1,8 @@
 import 'package:clean_arch_riverpod/core/theming/app_assets.dart';
 import 'package:clean_arch_riverpod/core/utils/app_consts.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
-import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/specialization.dart';
-import 'package:clean_arch_riverpod/featues/home/domain/models/recomended_doctor_entity.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/speciality_entity.dart';
 import 'package:clean_arch_riverpod/featues/home/presentation/providers/home_notifier.dart';
 import 'package:clean_arch_riverpod/featues/home/presentation/widgets/recomendedDoctor/item_recomended_doctor.dart';
 import 'package:clean_arch_riverpod/featues/home/presentation/widgets/recomendedDoctor/shimmer/shimmer_recomended_doctor_list.dart';
@@ -33,15 +33,16 @@ class RecomendedDoctorsWidget extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) {
-        RecomendedDoctorEntity fakeDoctor = RecomendedDoctorEntity(
+        DoctorEntity fakeDoctor = DoctorEntity(
           id: -1,
           name: AppStrings.defaultRecomDoc,
           photoUrl: AppAssets.doctorImage,
           degree: AppStrings.defaultDegreeDoc,
-          specialization: Specialization(
+          specialization: SpecialityEntity(
             1,
             AppStrings.defaultSpecialityDoc,
             '',
+             false,
           ),
         );
 

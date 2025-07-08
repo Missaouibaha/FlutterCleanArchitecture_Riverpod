@@ -6,4 +6,7 @@ class HiveKeys {
   static const homeData = 'homeData';
    static const recomendedDocListBox = 'recomendedDocList';
   static const recomendedDoc = 'recomendedDoc';
+
+    static const doctorsListBox = 'doctorsDataList';
+  static const doctorsData = 'doctorsData';
 }

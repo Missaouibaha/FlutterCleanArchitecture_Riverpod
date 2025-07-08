@@ -20,4 +20,5 @@ class ColorsManager {
   static const Color grayShade300 = Color(0xFFE0E0E0);
 
   static const Color brown = Color.fromARGB(198, 196, 146, 156);
+  static const Color grayHint =  Color.fromARGB(255, 252, 250, 250) ;
 }
