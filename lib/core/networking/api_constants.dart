@@ -7,6 +7,7 @@ class ApiConstants {
   static const String profile = "user/profile";
   static const String home = "home/index";
   static const String doctor = "doctor/index";
+  static const String bearer = "Bearer" ;
 }
 
 class ApiErrors {

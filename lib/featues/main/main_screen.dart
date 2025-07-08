@@ -3,6 +3,7 @@ import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 import 'package:clean_arch_riverpod/featues/home/presentation/home_screen.dart';
 import 'package:clean_arch_riverpod/featues/main/providers/main_screen_index_provider.dart';
 import 'package:clean_arch_riverpod/featues/main/widgets/custom_bottom_nav_bar.dart';
+import 'package:clean_arch_riverpod/featues/search/presentation/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -19,15 +20,7 @@ class MainScreen extends ConsumerWidget {
       ),
       backgroundColor: ColorsManager.white,
     ),
-    const Scaffold(
-      body: Center(
-        child: Text(
-          AppStrings.searchLabel,
-          style: TextStyle(color: ColorsManager.skyBlue),
-        ),
-      ),
-      backgroundColor: ColorsManager.white,
-    ),
+    Scaffold(body: SearchScreen(), backgroundColor: ColorsManager.white),
 
     const Scaffold(
       body: Center(

@@ -1,16 +1,16 @@
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/home_data.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
 import 'package:clean_arch_riverpod/featues/home/domain/models/home_data_entity.dart';
-import 'package:clean_arch_riverpod/featues/home/domain/models/recomended_doctor_entity.dart';
 import 'package:clean_arch_riverpod/featues/home/domain/models/speciality_entity.dart';
 
 extension HomeDataMapper on HomeData {
   HomeDataEntity toEntity() {
-    final speciality = SpecialityEntity(id, name, "");
+    final speciality = SpecialityEntity(id, name, "", false);
 
     final recomendedDoctors =
         doctors
             ?.map((doc) {
-              return RecomendedDoctorEntity(
+              return DoctorEntity(
                 id: doc.id,
                 name: doc.name,
                 email: doc.email,
@@ -22,7 +22,7 @@ extension HomeDataMapper on HomeData {
                 degree: doc.degree,
                 appointPrice: doc.appointPrice,
                 city: doc.city,
-                specialization: doc.specialization,
+                specialization: speciality,
               );
             })
             .toSet()

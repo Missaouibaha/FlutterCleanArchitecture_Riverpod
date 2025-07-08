@@ -1,9 +1,10 @@
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/doctor.dart';
-import 'package:clean_arch_riverpod/featues/home/domain/models/recomended_doctor_entity.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/speciality_entity.dart';
 
 extension RecomendedDoctorMapper on Doctor {
-  RecomendedDoctorEntity toDomain() {
-    return RecomendedDoctorEntity(
+  DoctorEntity toDomain() {
+    return DoctorEntity(
       id: id,
       name: name,
       email: email,
@@ -15,7 +16,21 @@ extension RecomendedDoctorMapper on Doctor {
       degree: degree,
       appointPrice: appointPrice,
       city: city,
-      specialization: specialization,
+      specialization: SpecialityEntity(
+        specialization?.id,
+        specialization?.name,
+        specialization?.specialityIconUrl,
+        false,
+      ),
+    );
+  }
+
+  SpecialityEntity toSpecDomain() {
+    return SpecialityEntity(
+      specialization?.id,
+      specialization?.name,
+      specialization?.specialityIconUrl,
+      false,
     );
   }
 }

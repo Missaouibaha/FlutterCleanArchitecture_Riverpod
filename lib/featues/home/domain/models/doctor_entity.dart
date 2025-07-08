@@ -1,7 +1,7 @@
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/city.dart';
-import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/specialization.dart';
+import 'package:clean_arch_riverpod/featues/home/domain/models/speciality_entity.dart';
 
-class RecomendedDoctorEntity {
+class DoctorEntity {
   final int? id;
   final String? name;
   final String? email;
@@ -12,10 +12,10 @@ class RecomendedDoctorEntity {
   final String? description;
   final String? degree;
   final int? appointPrice;
-  final Specialization? specialization;
+  final SpecialityEntity? specialization;
   final City? city;
 
-  RecomendedDoctorEntity({
+  DoctorEntity({
     this.id,
     this.name,
     this.email,

@@ -1,4 +1,5 @@
 import 'package:clean_arch_riverpod/core/helper/extensions.dart';
+import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class ErrorDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorsManager.white,
       content: Text(message, style: TextStyles.font14DarckBlueMedium),
       actions: [
         TextButton(

@@ -11,7 +11,7 @@ class ShimmerRecomendedDoctorList extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       scrollDirection: Axis.vertical,
-      itemCount: AppConsts.recomendedDocListCount,
+      itemCount: AppConsts.shimmerDoctorListCount,
       itemBuilder: (context, index) {
         return ItemShimmerRecomendedDoc();
       },
