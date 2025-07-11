@@ -4,6 +4,7 @@ import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/doctor
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/governorate.dart';
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/home_data.dart';
 import 'package:clean_arch_riverpod/featues/home/data/data_sources/models/specialization.dart';
+import 'package:clean_arch_riverpod/featues/profile/data/dataSources/models/user_profile_data.dart';
 import 'package:clean_arch_riverpod/featues/signin/data/data_sources/local/models/user_local.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -23,6 +24,7 @@ class HiveService {
     Hive.registerAdapter(SpecializationAdapter());
     Hive.registerAdapter(CityAdapter());
     Hive.registerAdapter(GovernorateAdapter());
+    Hive.registerAdapter(UserProfileDataAdapter());
   }
 
   Future<Box<T>> openBox<T>(String name) async {

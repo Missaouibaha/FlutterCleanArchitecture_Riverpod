@@ -19,7 +19,6 @@ class SpecialityListWidget extends ConsumerWidget {
       error: (error, stack) {
         return SizedBox(
           height: AppDimensions.height_120,
-
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: AppConsts.specialityListCount,
@@ -42,7 +41,6 @@ class SpecialityListWidget extends ConsumerWidget {
 
         return SizedBox(
           height: AppDimensions.height_120,
-
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: specialities?.length,

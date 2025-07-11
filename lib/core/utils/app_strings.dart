@@ -67,8 +67,19 @@ class AppStrings {
   static const String defaultDegreeDoc = "Consultant";
 
   // search
-  static const String hintSearch = "Doctor , speciality" ;
+  static const String hintSearch = "Doctor , speciality";
   static const String fakeSpecialityAllLabel = "All";
+
+  //Profile
+
+  static const String takePhoto = "Take photo";
+  static const String chooseFromGallery = "Choose From Gallery";
+  static const String appointments = "My Appointments";
+  static const String medicRecords = "Medical Records";
+  static const String personalInfo = "Personal Information";
+  static const String testAndDiagnostic = "My Test and Diagnostic";
+  static const String payment = "Payment";
+
   // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";

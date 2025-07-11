@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppDimensions {
   // Height
+  static double height_1 = 1.h;
   static double height_2 = 2.h;
   static double height_4 = 4.h;
   static double height_5 = 5.h;
@@ -16,10 +17,12 @@ class AppDimensions {
   static double height_35 = 30.h;
   static double height_40 = 40.h;
   static double height_50 = 50.h;
+  static double height_75 = 75.h;
   static double height_90 = 90.h;
   static double height_100 = 100.h;
   static double height_120 = 120.h;
   static double height_140 = 140.h;
+  static double height_150 = 150.h;
   static double height_180 = 180.h;
   static double height_200 = 200.h;
   static double height_210 = 210.h;
@@ -35,6 +38,7 @@ class AppDimensions {
   static double width_8 = 8.w;
   static double width_10 = 10.w;
   static double width_12 = 12.w;
+  static double width_15 = 15.w;
   static double width_20 = 20.w;
   static double width_25 = 20.w;
   static double width_30 = 30.w;
