@@ -9,4 +9,8 @@ class HiveKeys {
 
     static const doctorsListBox = 'doctorsDataList';
   static const doctorsData = 'doctorsData';
+
+  
+  static const userProfileBox = 'userProfile';
+  static const profile = 'profile';
 }

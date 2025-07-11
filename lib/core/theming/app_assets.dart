@@ -14,4 +14,10 @@ class AppAssets {
   static const appointmentIcon = 'assets/images/icon_appointments.png';
   static const doctorImage = 'assets/images/img_doc.png';
   static const iconCardioSpeciality = 'assets/images/icon_cardiologist_.png';
+
+  //profile
+
+    static const walletIcon = 'assets/images/icon_wallet.png';
+static const personalInfoIcon = 'assets/images/icon_personal_info.png';
+  static const diagnosticIcon = 'assets/images/icon_diagnostic.png';
 }
