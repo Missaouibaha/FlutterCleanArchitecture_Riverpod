@@ -33,6 +33,7 @@ class SharedPreferencesHelper {
 
   Future<void> clearAllData() async {
     await _prefs.clear();
+    await _flutterSecureStorage.deleteAll();
   }
 
   Future<T> getValue<T>(String key, T defaultValue) async {

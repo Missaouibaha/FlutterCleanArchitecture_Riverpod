@@ -1,3 +1,5 @@
+import 'package:clean_arch_riverpod/core/helper/extensions.dart';
+import 'package:clean_arch_riverpod/core/helper/routing/routes.dart';
 import 'package:clean_arch_riverpod/core/helper/spacing.dart';
 import 'package:clean_arch_riverpod/core/theming/app_dimensions.dart';
 import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
@@ -38,12 +40,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   style: TextStyles.font20WhiteSemiBold,
                 ),
                 centerTitle: true,
-                leading: Icon(
-                  Icons.arrow_back_ios,
-                  size: AppDimensions.width_30,
-                  color: ColorsManager.white,
-                ),
-
                 actions: [
                   GestureDetector(
                     child: Padding(
@@ -59,7 +55,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: ColorsManager.white,
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      context.pushNamed(Routes.settingsScreen);
+                    },
                   ),
                 ],
               ),

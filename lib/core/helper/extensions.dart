@@ -5,10 +5,11 @@ import 'package:go_router/go_router.dart';
 extension StringExtensions on String? {
   bool get isNullOrEmpty => this == null || this!.isEmpty;
 }
-extension ListExtension on List?{
- 
-bool get isNullOrEmpty => this == null || this!.isEmpty;
+
+extension ListExtension on List? {
+  bool get isNullOrEmpty => this == null || this!.isEmpty;
 }
+
 extension NavigationGoRouter on BuildContext {
   /// Navigate to a named route (replaces current screen)
   void goNamed(
@@ -39,6 +40,34 @@ extension NavigationGoRouter on BuildContext {
     GoRouter.of(
       this,
     ).replaceNamed(routeName, pathParameters: params, extra: extra);
+  }
+
+  /// Remove all routes and push new route
+  void pushAndRemoveUntil(
+    String routeName, {
+    Map<String, String> params = const {},
+    Object? extra,
+    bool Function(Route<dynamic>)? predicate,
+  }) {
+    // Default predicate removes all routes
+    final removeAllPredicate = predicate ?? (Route<dynamic> route) => false;
+
+    // First push the new route
+    pushNamed(routeName, params: params, extra: extra);
+
+    // Then remove all previous routes
+    Navigator.of(this).popUntil(removeAllPredicate);
+  }
+
+  /// Alternative version that works with MaterialPageRoute
+  void pushAndRemoveUntilMaterial(
+    Widget Function(BuildContext) builder, {
+    bool Function(Route<dynamic>)? predicate,
+  }) {
+    Navigator.of(this).pushAndRemoveUntil(
+      MaterialPageRoute(builder: builder),
+      predicate ?? (Route<dynamic> route) => false,
+    );
   }
 
   /// Pop current route

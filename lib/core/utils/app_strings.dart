@@ -7,6 +7,7 @@ class AppStrings {
   static const String signUp = "Sign Up";
   static const String signIn = "Sign In";
   static const String email = "Email";
+  static const String cancel = "Cancel";
   //error
   static const String unknownError = " Unknown Error";
 
@@ -80,6 +81,16 @@ class AppStrings {
   static const String testAndDiagnostic = "My Test and Diagnostic";
   static const String payment = "Payment";
 
+  //settings
+  static const String settingsLabel = "Settings";
+  static const String notification = 'Notification';
+  static const String faq = 'FAQ';
+  static const String security = 'Security';
+  static const String language = 'Language';
+  static const String logout = 'Logout';
+  static const String confirmLogout = 'Confirm Logout';
+  static const String askLogout = 'Are you sure you want to log out?';
+  static const String btnLogout = 'Log Out';
   // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";

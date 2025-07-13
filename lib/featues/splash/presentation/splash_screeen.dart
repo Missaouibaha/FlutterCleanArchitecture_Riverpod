@@ -13,11 +13,13 @@ class SplashScreeen extends ConsumerWidget {
     ref.listen<AsyncValue<bool>>(splashNotifierProvider, (previous, next) {
       next.whenOrNull(
         data: (isLoggedIn) {
-          if (isLoggedIn) {
-            context.pushReplacementNamed(Routes.mainScreen);
-          } else {
-            context.pushReplacementNamed(Routes.loginScreen);
-          }
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (isLoggedIn) {
+              context.goNamed(Routes.mainScreen);
+            } else {
+              context.goNamed(Routes.loginScreen);
+            }
+          });
         },
         error: (error, stackTrace) {},
       );
