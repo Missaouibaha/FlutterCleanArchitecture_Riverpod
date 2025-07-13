@@ -8,7 +8,12 @@ import 'package:clean_arch_riverpod/featues/search/presentation/search_screen.da
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MainScreen extends ConsumerWidget {
+class MainScreen extends ConsumerStatefulWidget {
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends ConsumerState<MainScreen> {
   final List<Widget> pages = [
     const HomeScreen(),
 
@@ -33,11 +38,10 @@ class MainScreen extends ConsumerWidget {
     ),
     ProfileScreen(),
   ];
-
-  MainScreen({super.key});
+ 
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final currentIndex = ref.watch(mainScreenIndexProvider);
     return Scaffold(
       body: pages[currentIndex],

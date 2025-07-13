@@ -60,16 +60,22 @@ class HiveService {
   }
 
   Future<void> clearAll() async {
-    for (var boxName in [HiveKeys.connectedUserBox, HiveKeys.user]) {
-      await clearBox(boxName);
-    }
+    await _clearAndCloseBox<UserLocal?>(HiveKeys.connectedUserBox);
+    await _clearAndCloseBox<HomeData>(HiveKeys.homeDataListBox);
+    await _clearAndCloseBox<Doctor>(HiveKeys.recomendedDocListBox);
+    await _clearAndCloseBox<Doctor>(HiveKeys.doctorsListBox);
+    await _clearAndCloseBox<UserProfileData?>(HiveKeys.userProfileBox);
     await Hive.close();
     await Hive.deleteFromDisk();
   }
 
-  Future<void> clearAndCloseBox<T>(String boxName) async {
+  Future<void> _clearAndCloseBox<T>(String boxName) async {
     if (Hive.isBoxOpen(boxName)) {
-      await Hive.box<T>(boxName).clear();
+      try {
+        await Hive.box<T>(boxName).clear();
+      } catch (error, st) {
+        debugPrint("$error");
+      }
     } else {
       final box = await Hive.openBox<T>(boxName);
       await box.clear();
@@ -88,15 +94,5 @@ class HiveService {
       final box = await Hive.openBox<T>(boxName);
       await box.clear();
     }
-  }
-
-  Future<void> clear() async {
-    if (Hive.isBoxOpen(HiveKeys.connectedUserBox)) {
-      await Hive.box<UserLocal>(HiveKeys.connectedUserBox).clear();
-      await Hive.box<UserLocal>(HiveKeys.connectedUserBox).close();
-    }
-
-    await Hive.close();
-    await Hive.deleteFromDisk();
   }
 }

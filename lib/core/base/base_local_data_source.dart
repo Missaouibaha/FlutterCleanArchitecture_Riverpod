@@ -55,4 +55,9 @@ class BaseLocalDataSource {
   Future<T?> getCached<T>(String boxKey, String objectKey) async {
     return await hive?.openAndGet<T?>(boxKey, objectKey);
   }
+
+  Future<void> logoutAndClearCache() async{
+   await prefs?.clearAllData();
+   await hive?.clearAll();
+  }
 }
