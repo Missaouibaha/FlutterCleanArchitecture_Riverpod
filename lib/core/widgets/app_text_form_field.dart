@@ -17,6 +17,7 @@ class AppTextFormField extends StatelessWidget {
   final Color? filledColor;
   final TextStyle? hintStyle;
   final String? Function(String?)? validator;
+  final bool? hasNext ;
   const AppTextFormField({
     super.key,
     this.textController,
@@ -31,7 +32,7 @@ class AppTextFormField extends StatelessWidget {
     required this.hint,
     this.filledColor,
     this.hintStyle,
-    this.validator,
+    this.validator, this.hasNext,
   });
 
   @override
@@ -40,7 +41,9 @@ class AppTextFormField extends StatelessWidget {
       controller: textController ?? TextEditingController(text: ''),
       style: inputTextStyle ?? TextStyles.font14DarckBlueMedium,
       obscureText: isobscureText ?? false,
+       textInputAction: (hasNext ?? false ) ? TextInputAction.next : TextInputAction.done ,
       validator: validator,
+      
       keyboardType: inputType ?? TextInputType.text,
       decoration: InputDecoration(
         contentPadding: contentPadding ??

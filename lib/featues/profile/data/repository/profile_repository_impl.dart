@@ -1,3 +1,4 @@
+import 'package:clean_arch_riverpod/core/helper/extensions.dart';
 import 'package:clean_arch_riverpod/core/networking/api_result.dart';
 import 'package:clean_arch_riverpod/featues/profile/data/dataSources/local/profile_local_data_source.dart';
 import 'package:clean_arch_riverpod/featues/profile/data/dataSources/mappers/user_profile_mapper.dart';
@@ -17,12 +18,17 @@ class ProfileRepositoryImpl implements ProfileRepository {
     final token = await _profileLocalDataSource.getUserToken();
     final profile = await _profileLocalDataSource.getProfileData();
     if (profile != null) {
+
       return ApiResult.success(profile.toDomain());
     } else {
+
       final result = await _profileRemoteDataSource.getProfile(token);
       return result.when(
         success: (data) {
           final profile = data?.profileData?.elementAt(0);
+          profile?.let(
+            (it) async => await _profileLocalDataSource.saveProfileData(it),
+          );
           return ApiResult.success(profile?.toDomain());
         },
         failure: (errorHandler) {

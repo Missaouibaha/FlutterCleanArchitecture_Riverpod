@@ -5,7 +5,7 @@ import 'package:clean_arch_riverpod/featues/home/domain/use_cases/user_data_use_
 import 'package:clean_arch_riverpod/featues/signin/domain/entities/user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class UserNotifier extends AsyncNotifier<User?> {
+class UserNotifier extends AutoDisposeAsyncNotifier<User?> {
   late UserDataUseCase _userUseCase;
 
   @override
@@ -16,6 +16,7 @@ class UserNotifier extends AsyncNotifier<User?> {
   }
 }
 
-final userNotifierProvider = AsyncNotifierProvider<UserNotifier, User?>(
-  () => UserNotifier(),
-);
+final userNotifierProvider =
+    AsyncNotifierProvider.autoDispose<UserNotifier, User?>(
+      () => UserNotifier(),
+    );

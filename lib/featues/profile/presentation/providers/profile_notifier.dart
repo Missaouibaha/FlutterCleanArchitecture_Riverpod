@@ -6,7 +6,7 @@ import 'package:clean_arch_riverpod/featues/profile/domain/providers/profile_dom
 import 'package:clean_arch_riverpod/featues/profile/domain/useCases/get_profile_use_case.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ProfileNotifier extends AsyncNotifier<ProfileEntity?> {
+class ProfileNotifier extends AutoDisposeAsyncNotifier<ProfileEntity?> {
   late GetProfileUseCase _profileUseCase;
   @override
   FutureOr<ProfileEntity?> build() async {
@@ -17,7 +17,6 @@ class ProfileNotifier extends AsyncNotifier<ProfileEntity?> {
         return userProfile;
       },
       failure: (errorHandler) {
-
         throw errorHandler.apiErrorModel.message ?? AppStrings.unknownError;
       },
     );
@@ -25,6 +24,6 @@ class ProfileNotifier extends AsyncNotifier<ProfileEntity?> {
 }
 
 final profileNotifierProvider =
-    AsyncNotifierProvider<ProfileNotifier, ProfileEntity?>(
+    AsyncNotifierProvider.autoDispose<ProfileNotifier, ProfileEntity?>(
       () => ProfileNotifier(),
     );

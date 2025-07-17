@@ -1,4 +1,3 @@
-import 'package:clean_arch_riverpod/core/helper/extensions.dart';
 import 'package:clean_arch_riverpod/core/helper/routing/routes.dart';
 import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
@@ -8,6 +7,7 @@ import 'package:clean_arch_riverpod/featues/settings/presentation/providers/sett
 import 'package:clean_arch_riverpod/featues/settings/presentation/widgets/settings_option_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -16,6 +16,7 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: ColorsManager.lightBlueSky,
         title: Text(
           AppStrings.settingsLabel,
           style: TextStyles.font24blackBold,
@@ -23,7 +24,7 @@ class SettingsScreen extends ConsumerWidget {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            context.goNamed(Routes.mainScreen);
+            GoRouter.of(context).pop();
           },
           child: Icon(Icons.arrow_back_ios, color: ColorsManager.black),
         ),
@@ -47,13 +48,18 @@ class SettingsScreen extends ConsumerWidget {
             title: AppStrings.confirmLogout,
             message: AppStrings.askLogout,
             okAction: () async {
-              Navigator.of(context).pop();
-              final logoutNotifier = ref.read(logoutNotifierProvider.notifier);
-              await logoutNotifier.logout();
+              try {
+                final logoutNotifier = ref.read(
+                  logoutNotifierProvider.notifier,
+                );
+                await logoutNotifier.logout();
+              } catch (e) {
+                // Error will be shown by LogoutStateListener
+              }
             },
             okActionText: AppStrings.btnLogout,
             cancelText: AppStrings.cancel,
-            cancelAction: () => context.pop(),
+            cancelAction: () {},
           );
 
           break;

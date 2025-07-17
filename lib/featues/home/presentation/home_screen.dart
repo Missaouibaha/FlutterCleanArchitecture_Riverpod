@@ -16,44 +16,56 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppDimensions.verticalPadding_10,
-            vertical: AppDimensions.padding_15,
-          ),
+          padding: EdgeInsets.only(top: AppDimensions.padding_15),
           child: SingleChildScrollView(
             child: Column(
               children: [
                 HomeTopBar(),
                 verticalSpace(AppDimensions.height_35),
                 TopCardViewDoctor(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.doctorSpeciality,
-                      style: TextStyles.font15BlackSemiBold,
-                    ),
-                    Text(AppStrings.seeAll, style: TextStyles.font13BlueMedium),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppDimensions.padding_10,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppStrings.doctorSpeciality,
+                        style: TextStyles.font15BlackSemiBold,
+                      ),
+                      Text(
+                        AppStrings.seeAll,
+                        style: TextStyles.font13BlueMedium,
+                      ),
+                    ],
+                  ),
                 ),
                 verticalSpace(AppDimensions.height_8),
                 SpecialityListWidget(),
                 verticalSpace(AppDimensions.height_5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.recomendedDoctors,
-                      style: TextStyles.font15BlackSemiBold,
-                    ),
-                    Text(AppStrings.seeAll, style: TextStyles.font13BlueMedium),
-                  ],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: AppDimensions.padding_10,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppStrings.recomendedDoctors,
+                        style: TextStyles.font15BlackSemiBold,
+                      ),
+                      Text(
+                        AppStrings.seeAll,
+                        style: TextStyles.font13BlueMedium,
+                      ),
+                    ],
+                  ),
                 ),
                 RecomendedDoctorsWidget(),
               ],

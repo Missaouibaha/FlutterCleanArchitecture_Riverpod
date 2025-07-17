@@ -21,7 +21,7 @@ class LoginStateListener extends ConsumerWidget {
         data: (user) {
           if (user != null) {
             LoadingIndicator.hide(context);
-            context.goNamed(Routes.mainScreen, extra: {'resetIndex': true});
+            context.goNamed(Routes.home, extra: {'resetIndex': true});
           }
         },
         error: (error, stackTrace) {

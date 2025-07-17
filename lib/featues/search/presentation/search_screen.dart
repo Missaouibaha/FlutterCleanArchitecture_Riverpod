@@ -21,14 +21,10 @@ class SearchScreen extends ConsumerWidget {
         child: RefreshIndicator(
           onRefresh: () async {
             ref.read(refreshDataProvider.notifier).state = true;
-            ref.invalidate(doctorNotifierProvider); 
-
+            ref.invalidate(doctorNotifierProvider);
           },
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppDimensions.padding_5,
-              vertical: AppDimensions.padding_10,
-            ),
+            padding: EdgeInsets.only(top: AppDimensions.padding_10),
             child: Column(
               children: [
                 Text(AppStrings.searchLabel, style: TextStyles.font24blackBold),
@@ -36,7 +32,7 @@ class SearchScreen extends ConsumerWidget {
                 TextSearchWidget(searchController: searchController),
                 verticalSpace(AppDimensions.height_20),
                 FilterSpecialityWidget(),
-                verticalSpace(AppDimensions.height_40),
+                verticalSpace(AppDimensions.verticalPadding_3),
                 Expanded(child: DoctorListWidget()),
               ],
             ),

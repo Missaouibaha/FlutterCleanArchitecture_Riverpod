@@ -29,11 +29,13 @@ class RegisterRepositoryImplementation implements RegisterRepository {
       );
 
       return result.when(
-        success: (registerResponse) {
+        success: (registerResponse) async {
           final user = registerResponse?.userData;
 
           if (user != null) {
-            registerLocalDatasource.cacheUser(user.toLocal());
+            await registerLocalDatasource.cacheUser(user.toLocal());
+          
+
             return ApiResult.success(user.toDomain());
           } else {
             return ApiResult.failure(ErrorHandler.handle(ApiErrors.noContent));

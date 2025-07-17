@@ -122,12 +122,16 @@ class _RoundedPhotoWidgetState extends State<RoundedPhotoWidget> {
   }
 
   void pickedImage(ImageSource source) async {
-    context.pop();
-    final picked = await ImagePicker().pickImage(source: source);
-    if (picked != null) {
-      setState(() {
-        kIsWeb ? _webImagePath = picked.path : _imageFile = File(picked.path);
-      });
+    try {
+      context.pop();
+      final picked = await ImagePicker().pickImage(source: source);
+      if (picked != null) {
+        setState(() {
+          kIsWeb ? _webImagePath = picked.path : _imageFile = File(picked.path);
+        });
+      }
+    } catch (e, s) {
+      debugPrint("Camera error: $e\n$s");
     }
   }
 }

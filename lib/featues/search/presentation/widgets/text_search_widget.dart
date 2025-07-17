@@ -2,7 +2,6 @@ import 'package:clean_arch_riverpod/core/theming/app_dimensions.dart';
 import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
 import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
-import 'package:clean_arch_riverpod/featues/search/presentation/providers/filter_doctor_notifier.dart';
 import 'package:clean_arch_riverpod/featues/search/presentation/providers/search_text_speciality_doctor_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

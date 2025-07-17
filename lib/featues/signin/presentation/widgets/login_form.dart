@@ -35,6 +35,7 @@ class _LoginFormState extends State<LoginForm> {
             validator: (value) {
               return value?.isValidateEmail();
             },
+            hasNext: true,
           ),
           verticalSpace(AppDimensions.height_12),
           AppTextFormField(

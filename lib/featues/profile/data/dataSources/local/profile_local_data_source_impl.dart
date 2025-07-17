@@ -21,7 +21,7 @@ class ProfileLocalDataSourceImpl extends BaseLocalDataSource
 
   @override
   Future<void> saveProfileData(UserProfileData profile) async {
-    await cache<UserProfileData>(
+    await cache<UserProfileData?>(
       HiveKeys.userProfileBox,
       HiveKeys.profile,
       profile,

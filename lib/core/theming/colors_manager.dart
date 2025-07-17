@@ -20,6 +20,8 @@ class ColorsManager {
   static const Color grayShade300 = Color(0xFFE0E0E0);
 
   static const Color brown = Color.fromARGB(198, 196, 146, 156);
+  static const Color brownHint = Color.fromARGB(101, 37, 20, 24);
+ static const Color transparentBrown = Color.fromARGB(100, 78, 51, 57);
   static const Color grayHint = Color.fromARGB(255, 252, 250, 250);
 
   static const Color lightPink = Color.fromARGB(209, 255, 201, 219) ;
@@ -29,5 +31,6 @@ class ColorsManager {
   static const Color green = Color.fromARGB(255, 20, 206, 135);
   
   static const Color extraLightBlue =  Color.fromARGB(181, 189, 226, 255);
+  static const Color lightBlueSky =  Color.fromARGB(255, 248, 250, 250) ;
 
 }

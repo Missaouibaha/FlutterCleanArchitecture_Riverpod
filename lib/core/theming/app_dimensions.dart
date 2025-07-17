@@ -27,6 +27,8 @@ class AppDimensions {
   static double height_200 = 200.h;
   static double height_210 = 210.h;
   static double height_230 = 230.h;
+  static double height_240 = 240.h;
+  static double height_250 = 250.h;
 
   // Width
 
@@ -41,6 +43,7 @@ class AppDimensions {
   static double width_15 = 15.w;
   static double width_20 = 20.w;
   static double width_25 = 20.w;
+  static double width_28 = 28.w;
   static double width_30 = 30.w;
   static double width_35 = 35.w;
   static double width_40 = 40.w;
@@ -52,6 +55,7 @@ class AppDimensions {
   static double width_110 = 110.w;
   static double width_120 = 120.w;
   static double width_150 = 150.w;
+  static double width_250 = 250.w;
 
   // Padding
 

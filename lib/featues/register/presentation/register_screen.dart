@@ -5,6 +5,7 @@ import 'package:clean_arch_riverpod/core/theming/text_styles.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 import 'package:clean_arch_riverpod/core/widgets/app_text_button.dart';
 import 'package:clean_arch_riverpod/core/widgets/divider_with_text.dart';
+import 'package:clean_arch_riverpod/core/widgets/error_dialog.dart';
 import 'package:clean_arch_riverpod/core/widgets/span_register_login_row.dart';
 import 'package:clean_arch_riverpod/core/widgets/terms_and_conditions.dart';
 import 'package:clean_arch_riverpod/featues/register/presentation/providers/genderProvider.dart';
@@ -48,7 +49,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(AppDimensions.padding_25),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.padding_25,
+            vertical: AppDimensions.padding_10,
+          ),
 
           child: SingleChildScrollView(
             child: Column(
@@ -109,17 +113,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void _validateThenRegister(WidgetRef ref) {
-    final gender = ref.read(gnederProvider.notifier).state;
-    if (formKey.currentState?.validate() ?? false) {
-      ref
-          .read(registerNotifierProvider.notifier)
-          .register(
-            nameController.text,
-            emailController.text,
-            phoneController.text,
-            gender.gederValue,
-            passwordController.text,
-          );
+    final gender = ref.read(genderProvider.notifier).state;
+
+    if ((formKey.currentState?.validate() ?? false)) {
+      if (gender == null) {
+        ErrorDialog.show(context, AppStrings.chooseGender);
+      } else {
+        ref
+            .read(registerNotifierProvider.notifier)
+            .register(
+              nameController.text,
+              emailController.text,
+              phoneController.text,
+              gender.gederValue,
+              passwordController.text,
+            );
+      }
     }
   }
 }
