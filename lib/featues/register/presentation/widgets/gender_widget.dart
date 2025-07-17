@@ -12,7 +12,7 @@ class GenderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final currentGender = ref.watch(gnederProvider);
+        final currentGender = ref.watch(genderProvider);
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -33,14 +33,14 @@ class GenderWidget extends StatelessWidget {
 
   Checkbox _generateCheckbox(
     WidgetRef ref,
-    Gender currentGender,
+    Gender? currentGender,
     Gender selectedGender,
   ) {
     return Checkbox(
       value: currentGender == selectedGender,
       onChanged: (value) {
         if (value == true) {
-          ref.read(gnederProvider.notifier).state = selectedGender;
+          ref.read(genderProvider.notifier).state = selectedGender;
         }
       },
     );

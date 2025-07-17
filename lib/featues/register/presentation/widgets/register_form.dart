@@ -41,11 +41,13 @@ class _RegisterFormState extends State<RegisterForm> {
             hint: AppStrings.name,
             inputType: TextInputType.name,
             validator: (value) {
-              if (value.isNullOrEmpty || (value?.length ?? 0) < AppConsts.minNameLength) {
+              if (value.isNullOrEmpty ||
+                  (value?.length ?? 0) < AppConsts.minNameLength) {
                 return AppStrings.nameRestriction;
               }
             },
             textController: widget.nameController,
+            hasNext: true,
           ),
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
@@ -55,17 +57,20 @@ class _RegisterFormState extends State<RegisterForm> {
               return value?.isValidateEmail();
             },
             textController: widget.emailController,
+            hasNext: true,
           ),
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
             hint: AppStrings.phone,
             inputType: TextInputType.phone,
             validator: (value) {
-              if (value.isNullOrEmpty || (value?.length ?? 0) < AppConsts.minPasswordLength) {
+              if (value.isNullOrEmpty ||
+                  (value?.length ?? 0) < AppConsts.minPasswordLength) {
                 return AppStrings.phoneRestriction;
               }
             },
             textController: widget.phoneController,
+            hasNext: true,
           ),
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
@@ -89,18 +94,18 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
             ),
             textController: widget.passwordController,
+            hasNext: true,
           ),
           verticalSpace(AppDimensions.height_20),
           AppTextFormField(
-            hint:AppStrings.confirmPassword,
+            hint: AppStrings.confirmPassword,
             isobscureText: isobscureText,
             inputType: TextInputType.visiblePassword,
             validator: (value) {
               if (value != widget.passwordController.text) {
-                return  AppStrings.confirmPassLengthRestriction;
+                return AppStrings.confirmPassLengthRestriction;
               }
             },
-
             textController: widget.confirmPasswordController,
           ),
         ],

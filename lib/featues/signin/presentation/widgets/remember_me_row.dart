@@ -29,10 +29,12 @@ class RememberMeRow extends StatelessWidget {
               activeColor: ColorsManager.blueAccent,
               checkColor: ColorsManager.black,
             ),
+            Text(
+              AppStrings.rememberMe,
+              style: TextStyles.font16LightGrayMedium,
+            ),
           ],
         ),
-        horizontalSpace(AppDimensions.width_10),
-        Text(AppStrings.rememberMe, style: TextStyles.font16LightGrayMedium),
         horizontalSpace(AppDimensions.width_30),
         GestureDetector(
           onTap: onForgetPasswordPressed,

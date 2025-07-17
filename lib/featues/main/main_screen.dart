@@ -1,54 +1,41 @@
-import 'package:clean_arch_riverpod/core/theming/colors_manager.dart';
-import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
-import 'package:clean_arch_riverpod/featues/home/presentation/home_screen.dart';
-import 'package:clean_arch_riverpod/featues/main/providers/main_screen_index_provider.dart';
+import 'package:clean_arch_riverpod/core/helper/routing/routes.dart';
 import 'package:clean_arch_riverpod/featues/main/widgets/custom_bottom_nav_bar.dart';
-import 'package:clean_arch_riverpod/featues/profile/presentation/profile_screen.dart';
-import 'package:clean_arch_riverpod/featues/search/presentation/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
-class MainScreen extends ConsumerStatefulWidget {
-  @override
-  ConsumerState<ConsumerStatefulWidget> createState() => _MainScreenState();
-}
+class MainScreen extends ConsumerWidget {
+  final Widget child;
 
-class _MainScreenState extends ConsumerState<MainScreen> {
-  final List<Widget> pages = [
-    const HomeScreen(),
+  const MainScreen({super.key, required this.child});
 
-    const Scaffold(
-      body: Center(
-        child: Text(
-          AppStrings.chatLabel,
-          style: TextStyle(color: ColorsManager.skyBlue),
-        ),
-      ),
-      backgroundColor: ColorsManager.white,
-    ),
-    SearchScreen(),
-    const Scaffold(
-      body: Center(
-        child: Text(
-          AppStrings.appointmentLabel,
-          style: TextStyle(color: ColorsManager.skyBlue),
-        ),
-      ),
-      backgroundColor: ColorsManager.white,
-    ),
-    ProfileScreen(),
+  static const _tabs = [
+    Routes.home,
+    Routes.chat,
+    Routes.search,
+    Routes.appointment,
+    Routes.profile,
   ];
- 
+
+  int _getTabIndexFromLocation(String location) {
+    final index = _tabs.indexWhere((tab) => location.startsWith(tab));
+    return index < 0 ? 0 : index;
+  }
 
   @override
-  Widget build(BuildContext context) {
-    final currentIndex = ref.watch(mainScreenIndexProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final location =
+        GoRouter.of(context).routerDelegate.currentConfiguration.uri.toString();
+    final currentIndex = _getTabIndexFromLocation(location);
+
     return Scaffold(
-      body: pages[currentIndex],
+      body: child,
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: currentIndex,
         onTap: (index) {
-          ref.read(mainScreenIndexProvider.notifier).state = index;
+          if (index != currentIndex) {
+            context.goNamed(_tabs[index]);
+          }
         },
       ),
     );

@@ -14,30 +14,34 @@ class HomeTopBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(userNotifierProvider).asData?.value;
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "${AppStrings.hiMsg} ${user?.name ?? ''}",
-              style: TextStyles.font17BlackSemiBold,
-            ),
-            verticalSpace(AppDimensions.height_8),
-            Text(AppStrings.welcomeHomeMsg, style: TextStyles.font13GreyLight),
-          ],
-        ),
-        GestureDetector(
-          child: GestureDetector(
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppDimensions.padding_10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "${AppStrings.hiMsg} ${user?.name ?? ''}",
+                style: TextStyles.font17BlackSemiBold,
+              ),
+              verticalSpace(AppDimensions.height_8),
+              Text(
+                AppStrings.welcomeHomeMsg,
+                style: TextStyles.font13GreyLight,
+              ),
+            ],
+          ),
+          GestureDetector(
             onTap: () {},
             child: CircleAvatar(
               backgroundColor: ColorsManager.gray,
               child: Icon(Icons.notifications),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

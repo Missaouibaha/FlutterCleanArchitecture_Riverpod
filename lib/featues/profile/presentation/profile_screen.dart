@@ -37,7 +37,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 backgroundColor: ColorsManager.blueAccent,
                 title: Text(
                   AppStrings.profileLabel,
-                  style: TextStyles.font20WhiteSemiBold,
+                  style: TextStyles.font25WhiteSemiBold,
                 ),
                 centerTitle: true,
                 actions: [
@@ -51,7 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       child: Icon(
                         Icons.settings,
-                        size: AppDimensions.width_30,
+                        size: AppDimensions.width_28,
                         color: ColorsManager.white,
                       ),
                     ),

@@ -26,4 +26,7 @@ class AppAssets {
   static const securityIcon = 'assets/images/icon_lock.png';
   static const logoutIcon = 'assets/images/icon_logout.png';
   static const notificationIcon = 'assets/images/icon_notification.png';
+
+  // datails
+  static const iconMarker = 'assets/images/3d_office_marker.png';
 }

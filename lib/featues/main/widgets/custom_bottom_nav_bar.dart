@@ -41,7 +41,7 @@ class CustomBottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           label: AppStrings.profileLabel,
-          icon: Icon(Icons.person) ,
+          icon: Icon(Icons.person),
         ),
       ],
     );

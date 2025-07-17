@@ -16,6 +16,7 @@ class SettingsNotifier extends AsyncNotifier<bool> {
     state = AsyncValue.loading();
     try {
       await _usecase.call();
+
       state = AsyncValue.data(true);
     } catch (error, stackTrace) {
       state = AsyncValue.error(error, stackTrace);

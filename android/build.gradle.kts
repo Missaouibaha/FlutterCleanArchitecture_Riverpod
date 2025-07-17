@@ -1,7 +1,19 @@
+val sdkRegistryToken: String? by project
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+              maven {
+            url = uri("https://api.mapbox.com/downloads/v2/releases/maven")
+            credentials {
+                username = "mapbox"
+                password = sdkRegistryToken
+            }
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+              }
     }
 }
 
@@ -14,8 +26,11 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+   
 }
 
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
+
+  

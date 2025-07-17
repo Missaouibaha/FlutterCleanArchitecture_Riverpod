@@ -1,3 +1,5 @@
+import 'package:clean_arch_riverpod/core/helper/extensions.dart';
+import 'package:clean_arch_riverpod/core/helper/routing/routes.dart';
 import 'package:clean_arch_riverpod/core/widgets/error_dialog.dart';
 import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
 import 'package:clean_arch_riverpod/featues/home/presentation/widgets/recomendedDoctor/item_recomended_doctor.dart';
@@ -36,10 +38,18 @@ class DoctorListWidget extends ConsumerWidget {
     return ListView.builder(
       itemCount: doctors?.length ?? 0,
       shrinkWrap: true,
-
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index) {
-        return ItemRecomendedDoctor(doctor: doctors?.elementAt(index));
+        final doctor = doctors?.elementAt(index);
+        return GestureDetector(
+          child: Hero(
+            tag: doctor?.id ?? 0,
+            child: ItemRecomendedDoctor(doctor: doctor),
+          ),
+          onTap: () {
+            context.pushNamed(Routes.detailsScreen, extra: doctor);
+          },
+        );
       },
     );
   }

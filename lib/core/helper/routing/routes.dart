@@ -4,6 +4,14 @@ class Routes {
   static const String registerScreen = '/register';
   static const String mainScreen = '/mainScreen';
   static const String settingsScreen = '/settingScreen';
+  static const String detailsScreen = '/detailsScreen';
+
+  // Main tab routes (used within ShellRoute)
+  static const String home = '/home';
+  static const String chat = '/chat';
+  static const String search = '/search';
+  static const String appointment = '/appointments';
+  static const String profile = '/profile';
   //settings
   static const String notifications = '/notifications';
   static const String faq = '/faq';

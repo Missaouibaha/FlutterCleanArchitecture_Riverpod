@@ -43,7 +43,10 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(AppDimensions.padding_20),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.padding_20,
+            vertical: AppDimensions.height_10,
+          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 verticalSpace(AppDimensions.height_30),
                 Consumer(
                   builder: (context, ref, child) {
-                    final loginState = ref.watch(loginNotifierProvider);
+                    //final loginState = ref.watch(loginNotifierProvider);
                     return AppTextButton(
                       textButton: AppStrings.login,
                       textStyle: TextStyles.font16WhiteSemiBold,

@@ -6,5 +6,4 @@ extension UserProfileMapper on UserProfileData {
     return ProfileEntity(id, name, email, phone, gender);
   }
 
-  
 }

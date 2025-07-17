@@ -39,7 +39,7 @@ class ItemRecomendedDoctor extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(AppDimensions.padding_8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

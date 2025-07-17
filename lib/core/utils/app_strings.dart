@@ -46,6 +46,7 @@ class AppStrings {
   static const String confirmPassLengthRestriction =
       " password and confirm password are not identical";
   static const String hvAccnt = "Already Have an account ?";
+  static const String chooseGender ="Please select your gender" ;
 
   //main
   static const String homeLabel = "Home";
@@ -71,6 +72,22 @@ class AppStrings {
   static const String hintSearch = "Doctor , speciality";
   static const String fakeSpecialityAllLabel = "All";
 
+  //details
+
+  static const String aboutTitle = "About";
+  static const String locationTitle = "Location";
+  static const String reviewsTitle = "Reviews";
+  static const String aboutMe = "About me";
+  static const String practicePlace = "Practice Place";
+  static const String workingTime = "Working Time :";
+  static const String appointmentPrice = "Appointment Price";
+  static const String aboutMeDescription =
+      "Dr {$name} , a dedicated {$doctorSpeciality} specialist known for her compassionate care and deep medical expertise";
+  static const String workingTimes = "09:00 -- 12:00 ||  14:00 -- 18:00 ";
+  static const String all = "All";
+
+  static const String locationMap = "Location Map ";
+
   //Profile
 
   static const String takePhoto = "Take photo";
@@ -91,6 +108,7 @@ class AppStrings {
   static const String confirmLogout = 'Confirm Logout';
   static const String askLogout = 'Are you sure you want to log out?';
   static const String btnLogout = 'Log Out';
+
   // api errors messages
   static const String badRequestError =
       "Something went wrong. Please try again.";
