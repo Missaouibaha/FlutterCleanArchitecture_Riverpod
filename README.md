@@ -1,157 +1,145 @@
-🧠 Overview
-This project adopts Clean Architecture with modular feature-based organization and Riverpod for scalable, testable, and reactive state management.
+## 🧠 Overview
+
+This project adopts **Clean Architecture** with **modular feature-based organization** and **Riverpod** for scalable, testable, and reactive state management.
 
 The app architecture separates the codebase into three primary layers:
 
-Data 
-
-Domain 
-
-Presentation 
+- **Data**
+- **Domain**
+- **Presentation**
 
 Each feature lives in its own module, promoting isolation, maintainability, and reusability.
 
-📁 Project Structure
-🔹 Core Layer (Shared Modules)
-The core/ directory provides app-wide configurations, helpers, services, and reusable UI components.
+---
+
+## 📁 Project Structure
+
+### 🔹 Core Layer (Shared Modules)
+
+The `core/` directory provides app-wide configurations, helpers, services, and reusable UI components.
 
 Includes:
 
-Base Classes: BaseRemoteDataSource, BaseLocalDataSource
+- **Base Classes**: `BaseRemoteDataSource`, `BaseLocalDataSource`
+- **Dependency Injection**: `provider.dart`, `init_di.dart`
+- **Helpers**: `SharedPrefHelper`, `.env` config loading
+- **Routing**: `AppRouter`, route names (via `go_router`)
+- **Themes**: Color palette, text styles, assets, dimensions
+- **Utils**: `AppStrings`, constants, validators, extensions
+- **Widgets**: Custom form fields, dialogs, loaders, etc.
 
-Dependency Injection: provider.dart, init_di.dart
+---
 
-Helpers: SharedPrefHelper, .env config loading
+### 🔹 Features Layer
 
-Routing: AppRouter, route names (via go_router)
+Each feature is structured into `data`, `domain`, and `presentation` sub-layers.
 
-Themes: Color palette, text styles, assets, dimensions
+**Example: `features/auth/`**
 
-Utils: AppStrings, constants, validators, extensions
+#### 📦 `data/`
 
-Widgets: Custom form fields, dialogs, loaders, etc.
-
-🔹 Features Layer
-Each feature is structured into data, domain, and presentation sub-layers.
-
-Example: features/auth/
-
-📦 data/
 Responsible for data handling:
 
-datasources/
+- **datasources/**
+  - `local/`: `local_data_source.dart`, `local_data_source_impl.dart`
+  - `remote/`: `remote_data_source.dart`, `remote_data_source_impl.dart`
+- **models/**: DTOs like `user_model.dart`
+- **mappers/**: Convert between DTOs and domain entities
+- **repositories/**: Implements domain repositories
+- **providers/**: Riverpod providers for datasources, mappers, etc.
 
-local/: local_data_source.dart, local_data_source_impl.dart
+#### 📦 `domain/`
 
-remote/: remote_data_source.dart, remote_data_source_impl.dart
-
-models/: DTOs like user_model.dart
-
-mappers/: Convert between DTOs and domain entities
-
-repositories/: Implements domain repositories
-
-providers/: Riverpod providers for datasources, mappers, etc.
-
-📦 domain/
 Defines business logic:
 
-entities/: Core domain models like User
+- **entities/**: Core domain models like `User`
+- **repositories/**: Abstract contracts
+- **usecases/**: Business logic (e.g. `LoginUseCase`)
+- **providers/**: Expose domain logic via Riverpod
 
-repositories/: Abstract contracts
+#### 📦 `presentation/`
 
-usecases/: Business logic (e.g. LoginUseCase)
-
-providers/: Expose domain logic via Riverpod
-
-📦 presentation/
 Handles UI and state:
 
-screens/: UI screens (e.g., login_screen.dart)
+- **screens/**: UI screens (e.g., `login_screen.dart`)
+- **widgets/**: Reusable UI components
+- **providers/**: Riverpod providers managing UI state
+- **notifiers/providers/**: `StateNotifierProvider`, `AsyncNotifier`, etc.
 
-widgets/: Reusable UI components
+---
 
-providers/: Riverpod providers managing UI state
+## 🎓 Technologies & Dependencies
 
-notifiers/providers/: Notifiers or state classes exposed via StateNotifierProvider, AsyncNotifier, etc.
+### ✨ UI & Layout
 
-🎓 Technologies & Dependencies
-✨ UI & Layout
-flutter_screenutil: Adaptive screen sizes
+- `flutter_screenutil`: Adaptive screen sizes  
+- `flutter_svg`: Render SVGs  
+- `shimmer`: Skeleton loaders  
+- `marquee`: Scrolling text  
 
-flutter_svg: Render SVGs
+### 🌱 State Management
 
-shimmer: Skeleton loaders
+- `flutter_riverpod`: Reactive, compile-safe state management
 
-marquee: Scrolling text
+### ⚙️ Dependency Injection
 
-🌱 State Management
-flutter_riverpod: Reactive, compile-safe state management
+- Riverpod Providers for injecting datasources, use cases, and repositories  
+- `flutter_dotenv`: Load `.env` for environment config
 
-⚙️ Dependency Injection
-Riverpod Providers for injecting datasources, use cases, and repositories
+### 🚀 Networking
 
-flutter_dotenv: Load .env for environment config
+- `dio`: HTTP client  
+- `retrofit`: Declarative API interface  
+- `pretty_dio_logger`: Dev request logs  
 
-🚀 Networking
-dio: HTTP client
+### 📦 Local Storage
 
-retrofit: Declarative API interface
+- `shared_preferences`: Simple key-value  
+- `flutter_secure_storage`: Encrypted data  
+- `hive`, `hive_flutter`: Lightweight NoSQL DB  
+- `path_provider`: Local file paths  
 
-pretty_dio_logger: Dev request logs
+### ⚛️ Code Generation
 
-📦 Local Storage
-shared_preferences: Simple key-value
+- `freezed`, `freezed_annotation`: Immutable models  
+- `json_serializable`, `json_annotation`: JSON parsing  
+- `build_runner`: Codegen runner  
 
-flutter_secure_storage: Encrypted data
+### 📸 Media & Assets
 
-hive / hive_flutter: Lightweight NoSQL DB
+- `cached_network_image`: Image caching  
+- `image_picker`: Media input  
 
-path_provider: Local file paths
+### 🗺️ Maps
 
-⚛️ Code Generation
-freezed / freezed_annotation: Immutable models
+- `mapbox_maps_flutter`: Custom interactive maps  
+- `flutter_map`, `latlong2`: Open-source map rendering  
 
-json_serializable / json_annotation: JSON parsing
+### 🔧 Other Utilities
 
-build_runner: Codegen runner
+- `go_router`: Declarative and nested navigation  
+- `dartz`: Functional programming utilities  
+- `equatable`, `collection`: Value comparison & helpers  
+- `cupertino_icons`: iOS-style icons  
 
-📸 Media & Assets
-cached_network_image: Image caching
+---
 
-image_picker: Media input
+## 🧪 Testing & Scalability
 
-🗺️ Maps
-mapbox_maps_flutter: Custom interactive maps
-
-flutter_map + latlong2: Open-source map rendering
-
-🔧 Other Utilities
-go_router: Declarative and nested navigation
-
-dartz: Functional programming utilities
-
-equatable / collection: Value comparison & helpers
-
-cupertino_icons: iOS-style icons
-
-🧪 Testing & Scalability
 This project is built with testability in mind thanks to the clean separation of concerns and Riverpod’s composability.
 
-✅ Unit and Widget Tests are implemented and available on the unit_and_widget_tests branch.
+✅ **Unit and Widget Tests are implemented** and available on the [`unit_and_widget_tests`](https://github.com/Missaouibaha/FlutterCleanArchitecture_Riverpod/tree/unit_and_widget_tests) branch.
 
-Key testing benefits:
+**Key testing benefits:**
 
-Domain logic is testable in isolation via usecases and repositories
+- Domain logic is testable in isolation via `usecases` and `repositories`
+- Presentation logic (e.g., UI state) is managed using Riverpod `Notifiers` and tested with `flutter_test`
+- Reusable providers enable easy mocking and overrides in test environments
+- Features are tested modularly, ensuring scalability and maintainability
 
-Presentation logic (e.g., UI state) is managed using Riverpod Notifiers and tested with flutter_test
+---
 
-Reusable providers enable easy mocking and overrides in test environments
+## 🛠️ Coming Enhancements
 
-Features are tested modularly, ensuring scalability and maintainability
-
-🛠️ Coming Enhancements
-Global error handling via providers or middlewares
-Better loading/error UI handling using AsyncValue or NotifierProvider
-
- 
+- Global error handling via providers or middlewares  
+- Better loading/error UI handling using `AsyncValue` or `NotifierProvider`  
