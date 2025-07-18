@@ -18,8 +18,8 @@ class RegisterStateListener extends ConsumerWidget {
           LoadingIndicator.show(context);
         },
         data: (user) {
+          LoadingIndicator.hide(context);
           if (user != null) {
-            LoadingIndicator.hide(context);
             context.pushNamed(Routes.home);
           }
         },

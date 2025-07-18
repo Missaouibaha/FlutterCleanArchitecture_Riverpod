@@ -37,7 +37,7 @@ class ProfileInformationList extends StatelessWidget {
     );
   }
 
-  List<Widget> buildListTileSection({
+  static List<Widget> buildListTileSection({
     required String title,
     required String iconPath,
     required Color backgroundColor,

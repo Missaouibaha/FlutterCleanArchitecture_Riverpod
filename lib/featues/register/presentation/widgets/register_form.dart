@@ -65,7 +65,7 @@ class _RegisterFormState extends State<RegisterForm> {
             inputType: TextInputType.phone,
             validator: (value) {
               if (value.isNullOrEmpty ||
-                  (value?.length ?? 0) < AppConsts.minPasswordLength) {
+                  (value?.length ?? 0) < AppConsts.minPhoneLength) {
                 return AppStrings.phoneRestriction;
               }
             },

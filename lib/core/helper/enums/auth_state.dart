@@ -1,1 +1,0 @@
-enum AuthState { loggedIn, loggedOut }

@@ -10,7 +10,7 @@ class AppCustomDialog extends StatefulWidget {
   final String msg;
   final String okActionText;
   final String? cancelText;
-  final Future<void> Function() okAction; // Async callback
+  final Future<void> Function() okAction;
   final VoidCallback? cancelAction;
 
   const AppCustomDialog({
@@ -36,7 +36,7 @@ class AppCustomDialog extends StatefulWidget {
   }) async {
     await showDialog(
       context: context,
-      barrierDismissible: false, // prevent dismiss on outside tap
+      barrierDismissible: false,
       builder:
           (_) => AppCustomDialog(
             title: title,
@@ -114,9 +114,6 @@ class _AppCustomDialogState extends State<AppCustomDialog> {
                     } catch (e) {
                       if (!mounted) return;
                       Navigator.of(context).pop();
-                      ScaffoldMessenger.of(
-                        context,
-                      ).showSnackBar(SnackBar(content: Text('Logout failed')));
                     } finally {
                       if (mounted) setState(() => _isLoading = false);
                     }
@@ -124,8 +121,8 @@ class _AppCustomDialogState extends State<AppCustomDialog> {
           child:
               _isLoading
                   ? SizedBox(
-                    width: 20,
-                    height: 20,
+                    width: AppDimensions.width_20,
+                    height: AppDimensions.height_20,
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
                       color: Colors.white,

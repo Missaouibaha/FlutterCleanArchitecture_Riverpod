@@ -14,7 +14,7 @@ class ShimmerSpecialityList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: AppConsts.specialityListCount,
         itemBuilder: (context, index) {
-          return ItemShimmerSpeciality();
+          return const ItemShimmerSpeciality();
         },
       ),
     );

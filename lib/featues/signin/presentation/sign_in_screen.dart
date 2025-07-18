@@ -83,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       textButton: AppStrings.login,
                       textStyle: TextStyles.font16WhiteSemiBold,
                       onPressed: () {
-                        validateThenLogin(ref);
+                        _validateThenLogin(ref);
                       },
                     );
                   },
@@ -111,7 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void validateThenLogin(WidgetRef ref) {
+  void _validateThenLogin(WidgetRef ref) {
     if (formKey.currentState?.validate() ?? false) {
       ref
           .read(loginNotifierProvider.notifier)
@@ -119,19 +119,4 @@ class _SignInScreenState extends State<SignInScreen> {
     }
   }
 
-  Widget _buildSignUpRow(VoidCallback navigateToSignUp) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(AppStrings.hvntAccnt, style: TextStyles.font13BlackRegular),
-        horizontalSpace(AppDimensions.width_3),
-        GestureDetector(
-          child: Text(AppStrings.signUp, style: TextStyles.font13BlueMedium),
-          onTap: () {
-            navigateToSignUp();
-          },
-        ),
-      ],
-    );
-  }
 }

@@ -13,7 +13,7 @@ class ShimmerRecomendedDoctorList extends StatelessWidget {
       scrollDirection: Axis.vertical,
       itemCount: AppConsts.shimmerDoctorListCount,
       itemBuilder: (context, index) {
-        return ItemShimmerRecomendedDoc();
+        return const ItemShimmerRecomendedDoc();
       },
     );
   }

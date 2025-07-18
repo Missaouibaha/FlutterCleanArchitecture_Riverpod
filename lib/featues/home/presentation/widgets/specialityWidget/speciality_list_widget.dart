@@ -17,7 +17,7 @@ class SpecialityListWidget extends ConsumerWidget {
     final homeState = ref.watch(homeNotifierProvider);
 
     return homeState.when(
-      loading: () => ShimmerSpecialityList(),
+      loading: () => const ShimmerSpecialityList(),
       error: (error, stack) {
         return SizedBox(
           height: AppDimensions.height_120,
