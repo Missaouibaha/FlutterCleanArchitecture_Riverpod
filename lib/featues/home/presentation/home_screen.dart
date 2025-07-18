@@ -25,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                HomeTopBar(),
+                const HomeTopBar(),
                 verticalSpace(AppDimensions.height_35),
-                TopCardViewDoctor(),
+                const TopCardViewDoctor(),
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: AppDimensions.padding_10,
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 verticalSpace(AppDimensions.height_8),
-                SpecialityListWidget(),
+                const SpecialityListWidget(),
                 verticalSpace(AppDimensions.height_5),
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                RecomendedDoctorsWidget(),
+                const RecomendedDoctorsWidget(),
               ],
             ),
           ),

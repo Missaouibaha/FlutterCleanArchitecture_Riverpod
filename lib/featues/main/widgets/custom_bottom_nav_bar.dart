@@ -14,7 +14,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
+    return  BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       backgroundColor: ColorsManager.white,
       currentIndex: currentIndex,
@@ -25,7 +25,7 @@ class CustomBottomNavBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           label: AppStrings.homeLabel,
-          icon: ImageIcon(AssetImage(AppAssets.homeIcon)),
+          icon:  ImageIcon(AssetImage(AppAssets.homeIcon)),
         ),
         BottomNavigationBarItem(
           label: AppStrings.chatLabel,

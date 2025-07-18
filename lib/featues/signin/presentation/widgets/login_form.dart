@@ -30,7 +30,7 @@ class _LoginFormState extends State<LoginForm> {
       child: Column(
         children: [
           AppTextFormField(
-            hint: 'Email',
+            hint: AppStrings.email,
             textController: widget.emailController,
             validator: (value) {
               return value?.isValidateEmail();
@@ -39,7 +39,7 @@ class _LoginFormState extends State<LoginForm> {
           ),
           verticalSpace(AppDimensions.height_12),
           AppTextFormField(
-            hint: 'Password',
+            hint: AppStrings.password,
             isobscureText: isobscureText,
             suffixIcon: GestureDetector(
               onTap: () {

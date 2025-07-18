@@ -29,7 +29,12 @@ class AppCustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+      padding: EdgeInsets.fromLTRB(
+        AppDimensions.padding_10,
+        AppDimensions.verticalPadding_20,
+        AppDimensions.padding_10,
+        0,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

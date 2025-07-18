@@ -46,7 +46,7 @@ class AppStrings {
   static const String confirmPassLengthRestriction =
       " password and confirm password are not identical";
   static const String hvAccnt = "Already Have an account ?";
-  static const String chooseGender ="Please select your gender" ;
+  static const String chooseGender = "Please select your gender";
 
   //main
   static const String homeLabel = "Home";

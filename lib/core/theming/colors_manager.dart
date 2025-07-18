@@ -21,16 +21,15 @@ class ColorsManager {
 
   static const Color brown = Color.fromARGB(198, 196, 146, 156);
   static const Color brownHint = Color.fromARGB(101, 37, 20, 24);
- static const Color transparentBrown = Color.fromARGB(100, 78, 51, 57);
+  static const Color transparentBrown = Color.fromARGB(100, 78, 51, 57);
   static const Color grayHint = Color.fromARGB(255, 252, 250, 250);
 
-  static const Color lightPink = Color.fromARGB(209, 255, 201, 219) ;
-    static const Color pink =   Color.fromARGB(255, 248, 64, 126) ;
-    
+  static const Color lightPink = Color.fromARGB(209, 255, 201, 219);
+  static const Color pink = Color.fromARGB(255, 248, 64, 126);
+
   static const Color lightGreen = Color.fromARGB(209, 181, 255, 212);
   static const Color green = Color.fromARGB(255, 20, 206, 135);
-  
-  static const Color extraLightBlue =  Color.fromARGB(181, 189, 226, 255);
-  static const Color lightBlueSky =  Color.fromARGB(255, 248, 250, 250) ;
 
+  static const Color extraLightBlue = Color.fromARGB(181, 189, 226, 255);
+  static const Color lightBlueSky = Color.fromARGB(255, 248, 250, 250);
 }

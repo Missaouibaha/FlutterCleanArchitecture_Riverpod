@@ -22,11 +22,9 @@ class SettingsScreen extends ConsumerWidget {
           style: TextStyles.font24blackBold,
         ),
         centerTitle: true,
-        leading: GestureDetector(
-          onTap: () {
-            GoRouter.of(context).pop();
-          },
-          child: Icon(Icons.arrow_back_ios, color: ColorsManager.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: ColorsManager.black),
+          onPressed: () => GoRouter.of(context).pop(),
         ),
       ),
       body: SettingsOptionList(

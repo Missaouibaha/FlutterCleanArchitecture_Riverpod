@@ -45,9 +45,9 @@ class HiveService {
     Box<T> box;
 
     if (Hive.isBoxOpen(boxKey)) {
-      box = Hive.box<T>(boxKey);  
+      box = Hive.box<T>(boxKey);
     } else {
-      box = await Hive.openBox<T>(boxKey);  
+      box = await Hive.openBox<T>(boxKey);
     }
 
     return box.get(dataKey);

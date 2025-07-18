@@ -27,21 +27,7 @@ class TopDetailsWidget extends StatelessWidget {
                 bottomRight: Radius.circular(AppDimensions.radius_16),
               ),
             ),
-            child: Hero(
-              tag: doctor.id ?? 0,
-              child: Image.network(
-                doctor?.photoUrl ?? '',
-                width: AppDimensions.width_250,
-                height: AppDimensions.height_210,
-                errorBuilder:
-                    (context, error, stackTrace) => Image.asset(
-                      AppAssets.doctorImage,
-                      fit: BoxFit.fitHeight,
-                      width: AppDimensions.width_250,
-                      height: AppDimensions.height_250,
-                    ),
-              ),
-            ),
+            child: _buildDoctorImage(),
           ),
         ),
         Positioned(
@@ -90,6 +76,24 @@ class TopDetailsWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildDoctorImage() {
+    return Hero(
+      tag: doctor.id ?? 0,
+      child: Image.network(
+        doctor.photoUrl ?? '',
+        width: AppDimensions.width_250,
+        height: AppDimensions.height_210,
+        errorBuilder:
+            (context, error, stackTrace) => Image.asset(
+              AppAssets.doctorImage,
+              fit: BoxFit.fitHeight,
+              width: AppDimensions.width_250,
+              height: AppDimensions.height_250,
+            ),
+      ),
     );
   }
 }
