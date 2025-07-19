@@ -6,7 +6,6 @@ import 'package:clean_arch_riverpod/core/utils/app_consts.dart';
 import 'package:clean_arch_riverpod/core/utils/app_strings.dart';
 import 'package:clean_arch_riverpod/featues/home/domain/models/doctor_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_map/flutter_map.dart';
 
 class LocationPage extends StatelessWidget {
@@ -44,7 +43,9 @@ class LocationPage extends StatelessWidget {
                 children: [
                   TileLayer(
                     urlTemplate:
-                        '${AppConsts.urlTemplate}${dotenv.env[AppConsts.mapBoxEnvKey]}',
+                        //  load env file on main.dart &
+                        // change access-token-mapbox   with ${dotenv.env[AppConsts.mapBoxEnvKey]}
+                        '${AppConsts.urlTemplate}access-token-mapbox',
                     userAgentPackageName: AppConsts.userAgentPackageName,
                   ),
                   MarkerLayer(
