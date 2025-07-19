@@ -66,6 +66,11 @@ Handles UI and state:
 - **providers/**: Riverpod providers managing UI state
 - **notifiers/providers/**: `StateNotifierProvider`, `AsyncNotifier`, etc.
 
+
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/41facd0c-2cc4-45eb-b155-52fc404ff056" alt="Clean Architecture Riverpod Diagram" width="600" height="800" />
+</p>
 ---
 
 ## 🎓 Technologies & Dependencies
