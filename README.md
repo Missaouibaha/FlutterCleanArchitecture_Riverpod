@@ -1,7 +1,11 @@
 ## 🧠 Overview
 
 This project adopts **Clean Architecture** with **modular feature-based organization** and **Riverpod** for scalable, testable, and reactive state management.
+It is implemented based on a real Figma UI design and documented API for realistic use-case simulation.
 
+- 🎨 Figma Design: [Omar Appointment App UI](https://www.figma.com/design/WB4GtMqCEZqJtuaWXd2oYd/Omar---Appointment-App?node-id=157-8718)
+- 📘 API Docs: [Appointment API (Postman)](https://documenter.getpostman.com/view/25727519/2s9YCBt9De#04261fee-8b05-42af-b3c7-9d213bd817fe)
+  
 The app architecture separates the codebase into three primary layers:
 
 - **Data**
