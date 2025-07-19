@@ -25,7 +25,7 @@ The `core/` directory provides app-wide configurations, helpers, services, and r
 Includes:
 
 - **Base Classes**: `BaseRemoteDataSource`, `BaseLocalDataSource`
-- **Dependency Injection**: `provider.dart`, `init_di.dart`
+- **Core Providers**: Shared instances (e.g., Dio, SharedPreferences, Hive, SecureStorage ,APi) managed via Riverpod
 - **Helpers**: `SharedPrefHelper`, `.env` config loading
 - **Routing**: `AppRouter`, route names (via `go_router`)
 - **Themes**: Color palette, text styles, assets, dimensions
@@ -90,7 +90,7 @@ Handles UI and state:
 
 - `flutter_riverpod`: Reactive, compile-safe state management
 
-### ⚙️ Dependency Injection
+### 🧩 Providers & Configuration
 
 - Riverpod Providers for injecting datasources, use cases, and repositories  
 - `flutter_dotenv`: Load `.env` for environment config
@@ -145,10 +145,4 @@ This project is built with testability in mind thanks to the clean separation of
 - Presentation logic (e.g., UI state) is managed using Riverpod `Notifiers` and tested with `flutter_test`
 - Reusable providers enable easy mocking and overrides in test environments
 - Features are tested modularly, ensuring scalability and maintainability
-
----
-
-## 🛠️ Coming Enhancements
-
-- Global error handling via providers or middlewares  
-- Better loading/error UI handling using `AsyncValue` or `NotifierProvider`  
+ 
